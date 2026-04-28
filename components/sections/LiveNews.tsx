@@ -1,9 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ENTITIES } from "@/lib/placeholder-data";
 import type { Entity, NewsItem } from "@/types";
+import type { AiPolicyDeskNewsItem } from "@/app/api/aipolicydesk-news/route";
 
 interface NewsRow {
   item: NewsItem;
@@ -180,7 +181,7 @@ function LiveNewsCard({
   const hasSummary = Boolean(item.summary);
 
   return (
-    <article className="break-inside-avoid mb-3 bg-white border border-black/[.06] rounded-2xl p-5 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-black/[.12] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.03)] hover:-translate-y-0.5">
+    <article className="break-inside-avoid mb-3 bg-card border border-hairline rounded-2xl p-5 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-primary/30 hover:shadow-[0_10px_28px_rgba(0,0,0,0.40),0_2px_6px_rgba(0,0,0,0.25)] hover:-translate-y-0.5">
       {/* Headline goes straight to the source article — no click-to-expand
           indirection. The card is a display surface, not a toggle. */}
       <a
@@ -215,7 +216,7 @@ function LiveNewsCard({
           {item.summary}
           {item.summarySource === "headline-only" && (
             <span
-              className="ml-1.5 inline-block align-middle text-[10px] text-muted/80 px-1.5 py-0.5 rounded-full bg-bg/70 border border-black/[.05]"
+              className="ml-1.5 inline-block align-middle text-[10px] text-muted/80 px-1.5 py-0.5 rounded-full bg-bg/70 border border-hairline"
               title="Source article was paywalled or unreachable — summary derived from the headline alone"
             >
               from headline
@@ -242,13 +243,59 @@ interface LiveNewsProps {
   showAll?: boolean;
 }
 
+// Fallback entity used when inferEntityId returns an ID not in ENTITIES.
+const AIPD_FALLBACK_ENTITY: Entity = {
+  id: "us-federal",
+  geoId: "840",
+  name: "United States",
+  region: "na",
+  level: "federal",
+  stanceDatacenter: "none",
+  stanceAI: "none",
+  contextBlurb: "",
+  legislation: [],
+  keyFigures: [],
+  news: [],
+};
+
+// basePath prefix so the fetch works whether we're behind a proxy or direct.
+const BASE_PATH =
+  typeof window !== "undefined"
+    ? "" // relative fetch — works in both proxy and direct modes
+    : "";
+
 export default function LiveNews({ showAll = false }: LiveNewsProps = {}) {
   const [query, setQuery] = useState("");
   const [activeScope, setActiveScope] = useState<ScopeFilter>("all");
   const [activeTopic, setActiveTopic] = useState<TopicFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("relevance");
+  const [externalRows, setExternalRows] = useState<NewsRow[]>([]);
 
-  const allRows = useMemo(() => buildNewsRows(), []);
+  // Fetch AI Policy Desk articles on mount and merge into the news feed.
+  useEffect(() => {
+    fetch(`${BASE_PATH}/api/aipolicydesk-news`)
+      .then((r) => r.json())
+      .then(({ items }: { items: AiPolicyDeskNewsItem[] }) => {
+        const rows: NewsRow[] = items.map(({ item, entityId }) => {
+          const entity =
+            ENTITIES.find((e) => e.id === entityId) ?? AIPD_FALLBACK_ENTITY;
+          return { item, entity };
+        });
+        setExternalRows(rows);
+      })
+      .catch(() => {
+        // Silently fail — static entity news still shows.
+      });
+  }, []);
+
+  const allRows = useMemo(() => {
+    const staticRows = buildNewsRows();
+    if (externalRows.length === 0) return staticRows;
+    // Merge and re-sort by date descending.
+    return [...staticRows, ...externalRows].sort((a, b) =>
+      (b.item.date ?? "").localeCompare(a.item.date ?? ""),
+    );
+  }, [externalRows]);
   const lastUpdated = useMemo(
     () => formatLastUpdated(allRows[0]?.item.date),
     [allRows],
@@ -325,7 +372,7 @@ export default function LiveNews({ showAll = false }: LiveNewsProps = {}) {
 
       {/* Search input */}
       <div className="mb-6">
-        <div className="max-w-md flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white border border-black/[.06] focus-within:border-black/20 transition-colors">
+        <div className="max-w-md flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card border border-hairline focus-within:border-hairline transition-colors">
           <svg
             width="14"
             height="14"
@@ -390,8 +437,8 @@ export default function LiveNews({ showAll = false }: LiveNewsProps = {}) {
                 onClick={() => setActiveScope(opt.key)}
                 className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
                   active
-                    ? "bg-ink text-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                    : "border border-black/[.06] text-muted hover:text-ink hover:bg-black/[.02]"
+                    ? "bg-primary text-white shadow-[0_1px_3px_rgba(0,0,0,0.45)]"
+                    : "border border-hairline text-muted hover:text-ink hover:bg-card/60"
                 }`}
               >
                 <span>{opt.label}</span>
@@ -424,8 +471,8 @@ export default function LiveNews({ showAll = false }: LiveNewsProps = {}) {
                 onClick={() => setActiveTopic(opt.key)}
                 className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
                   active
-                    ? "bg-ink text-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                    : "border border-black/[.06] text-muted hover:text-ink hover:bg-black/[.02]"
+                    ? "bg-primary text-white shadow-[0_1px_3px_rgba(0,0,0,0.45)]"
+                    : "border border-hairline text-muted hover:text-ink hover:bg-card/60"
                 }`}
               >
                 <span>{opt.label}</span>
@@ -449,7 +496,7 @@ export default function LiveNews({ showAll = false }: LiveNewsProps = {}) {
           <select
             value={sortKey}
             onChange={(e) => setSortKey(e.target.value as SortKey)}
-            className="appearance-none rounded-full bg-black/[.04] text-ink text-xs font-medium pl-3 pr-7 py-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/20"
+            className="appearance-none rounded-full bg-white/[.06] text-ink text-xs font-medium pl-3 pr-7 py-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/20"
           >
             {SORT_OPTIONS.map((opt) => (
               <option key={opt.key} value={opt.key}>
@@ -499,7 +546,7 @@ export default function LiveNews({ showAll = false }: LiveNewsProps = {}) {
             <div className="mt-6 flex justify-center">
               <Link
                 href="/news"
-                className="rounded-full border border-black/[.06] text-muted hover:text-ink px-5 py-2 text-xs font-medium transition-colors"
+                className="rounded-full border border-hairline text-muted hover:text-ink px-5 py-2 text-xs font-medium transition-colors"
               >
                 Show all {filtered.length} stories →
               </Link>

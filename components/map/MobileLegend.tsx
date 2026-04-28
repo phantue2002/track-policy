@@ -127,7 +127,7 @@ function DataCenterRow() {
               <span
                 className="relative w-2 h-2 rounded-full"
                 style={{
-                  backgroundColor: item.hollow ? "#FFFFFF" : item.color,
+                  backgroundColor: item.hollow ? "var(--color-card)" : item.color,
                   border: item.hollow ? `1.25px solid ${item.color}` : "none",
                 }}
               />
@@ -161,19 +161,19 @@ export default function MobileLegend({
       }}
     >
       <div
-        className="rounded-2xl bg-white/92 backdrop-blur-2xl border border-black/[.04] overflow-hidden"
+        className="rounded-2xl bg-card/80 backdrop-blur-2xl border border-hairline overflow-hidden"
         style={{
           boxShadow:
-            "0 8px 32px rgba(0,0,0,0.08), 0 2px 10px rgba(0,0,0,0.04)",
+            "0 8px 32px rgba(0,0,0,0.45), 0 2px 10px rgba(0,0,0,0.30)",
         }}
       >
         <div className="px-4 py-3 flex flex-col gap-3">
           {showDimension ? <DimensionRow dimension={dimension} /> : <StanceRow />}
           {showDataCenters && (
             <>
-              <div className="h-px bg-black/[.05]" />
+              <div className="h-px bg-white/[.07]" />
               <DataCenterRow />
-              <div className="h-px bg-black/[.05]" />
+              <div className="h-px bg-white/[.07]" />
               <SizeRow />
             </>
           )}

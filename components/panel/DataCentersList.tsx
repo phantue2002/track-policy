@@ -91,7 +91,7 @@ function FacilityRow({
       <button
         type="button"
         onClick={() => onSelect!(facility)}
-        className="w-full flex items-start gap-2.5 py-2 px-2 -mx-2 rounded-lg text-left hover:bg-black/[.03] transition-colors"
+        className="w-full flex items-start gap-2.5 py-2 px-2 -mx-2 rounded-lg text-left hover:bg-white/[.05] transition-colors"
       >
         {Inner}
       </button>

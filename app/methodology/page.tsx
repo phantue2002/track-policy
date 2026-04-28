@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function MethodologyPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-bg">
       <div className="max-w-3xl mx-auto px-8 py-24">
         <Link
           href="/"
@@ -125,7 +125,7 @@ export default function MethodologyPage() {
           </p>
         </div>
 
-        <div className="mt-16 pt-10 border-t border-black/[.06] space-y-8">
+        <div className="mt-16 pt-10 border-t border-hairline space-y-8">
           <div>
             <div className="text-[13px] font-medium text-muted tracking-tight mb-1">
               Sources

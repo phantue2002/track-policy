@@ -50,7 +50,7 @@ function Ring({ score, color }: { score: number | null; color: string }) {
   const offset = c - (pct / 100) * c;
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} aria-hidden>
-      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="currentColor" className="text-black/[.06]" strokeWidth={stroke} />
+      <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="currentColor" className="text-white/20" strokeWidth={stroke} />
       {score !== null && (
         <circle
           cx={size / 2}

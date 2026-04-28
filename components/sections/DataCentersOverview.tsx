@@ -237,7 +237,7 @@ export default function DataCentersOverview({
     <div>
       {/* Stats strip — wide, dense, scannable. Each cell stands alone but
           the row reads as a single cohesive unit. */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-8 pb-8 mb-10 border-b border-black/[.06]">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-6 gap-x-8 pb-8 mb-10 border-b border-hairline">
         {stats.map((s, i) => (
           <FadeInOnView
             key={s.label}
@@ -257,7 +257,7 @@ export default function DataCentersOverview({
       {/* Search — free-text match over operator, user, location, and notes.
           Matches the LiveNews search pattern so the chrome feels unified. */}
       <div className="mb-6">
-        <div className="max-w-md flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white border border-black/[.06] focus-within:border-black/20 transition-colors">
+        <div className="max-w-md flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card border border-hairline focus-within:border-hairline transition-colors">
           <svg
             width="14"
             height="14"
@@ -322,8 +322,8 @@ export default function DataCentersOverview({
                 onClick={() => setStatusFilter(opt.key)}
                 className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
                   active
-                    ? "bg-ink text-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                    : "border border-black/[.06] text-muted hover:text-ink hover:bg-black/[.02]"
+                    ? "bg-primary text-white shadow-[0_1px_3px_rgba(0,0,0,0.45)]"
+                    : "border border-hairline text-muted hover:text-ink hover:bg-white/[.04]"
                 }`}
               >
                 <span>{opt.label}</span>
@@ -349,7 +349,7 @@ export default function DataCentersOverview({
           <select
             value={sortKey}
             onChange={(e) => setSortKey(e.target.value as SortKey)}
-            className="appearance-none rounded-full bg-black/[.04] hover:bg-black/[.06] text-ink text-xs font-medium pl-3 pr-7 py-1.5 cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/20"
+            className="appearance-none rounded-full bg-white/[.06] hover:bg-white/[.08] text-ink text-xs font-medium pl-3 pr-7 py-1.5 cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/20"
           >
             {SORT_OPTIONS.map((opt) => (
               <option key={opt.key} value={opt.key}>
@@ -447,10 +447,10 @@ export default function DataCentersOverview({
                // switch (rounded-l-xl → rounded-tl-xl) animates in sync
                // with the expansion panel opening.
               const cellBase =
-                "py-3.5 px-2 border-t border-black/[.05] transition-[background-color,border-color,border-top-left-radius,border-top-right-radius,border-bottom-left-radius,border-bottom-right-radius] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]";
+                "py-3.5 px-2 border-t border-hairline transition-[background-color,border-color,border-top-left-radius,border-top-right-radius,border-bottom-left-radius,border-bottom-right-radius] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]";
               const rowBg = isExpanded
-                ? "bg-black/[.05]"
-                : "group-hover:bg-black/[.05]";
+                ? "bg-white/[.07]"
+                : "group-hover:bg-white/[.07]";
               // When the expansion below is going to render, round only
               // the TOP corners of the header row so the two rows fuse
               // into one continuous pill. Without this the row looks like
@@ -553,7 +553,7 @@ export default function DataCentersOverview({
                             <div
                               className={`transition-[opacity,background-color,border-radius] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] px-2 pt-3 pb-4 ${
                                 isExpanded
-                                  ? "opacity-100 bg-black/[.025] rounded-b-xl"
+                                  ? "opacity-100 bg-white/[.025] rounded-b-xl"
                                   : "opacity-0 bg-transparent"
                               }`}
                             >
@@ -568,7 +568,7 @@ export default function DataCentersOverview({
                                     {concerns.map((c) => (
                                       <li
                                         key={c}
-                                        className="text-[11px] px-2 py-[3px] rounded-full border border-black/[.08] bg-white/70 text-ink/75 tracking-tight"
+                                        className="text-[11px] px-2 py-[3px] rounded-full border border-hairline bg-card/70 text-ink/75 tracking-tight"
                                       >
                                         {prettyConcern(c)}
                                       </li>
@@ -610,7 +610,7 @@ export default function DataCentersOverview({
         <div className="mt-6 flex justify-center">
           <Link
             href="/datacenters"
-            className="rounded-full border border-black/[.06] text-muted hover:text-ink px-5 py-2 text-xs font-medium transition-colors"
+            className="rounded-full border border-hairline text-muted hover:text-ink px-5 py-2 text-xs font-medium transition-colors"
           >
             Show all {sorted.length} facilities →
           </Link>

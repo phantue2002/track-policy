@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-bg">
       <div className="max-w-3xl mx-auto px-8 py-24">
         <Link
           href="/"
@@ -91,7 +91,7 @@ export default function AboutPage() {
             front of them.
           </p>
 
-          <div className="pt-5 mt-5 border-t border-black/[.06]">
+          <div className="pt-5 mt-5 border-t border-hairline">
             <p className="text-muted">
               This is still early. I&rsquo;m open to feedback and edits.
               The repo is public at{" "}
@@ -115,7 +115,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="mt-16 pt-10 border-t border-black/[.06]">
+        <div className="mt-16 pt-10 border-t border-hairline">
           <div className="text-[13px] font-medium text-muted tracking-tight mb-4">
             Credits
           </div>

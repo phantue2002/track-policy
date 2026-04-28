@@ -243,7 +243,7 @@ export default function AIOverview() {
   const visibleRegion = allRegions.find((r) => r.key === activeTab);
 
   return (
-    <div className="bg-black/[.02] rounded-3xl p-8">
+    <div className="bg-white/[.04] rounded-3xl p-8">
       <div className="flex items-center justify-between gap-4 flex-wrap">
         <div className="text-[13px] font-medium text-muted tracking-tight flex items-center gap-1.5">
           <svg
@@ -259,7 +259,7 @@ export default function AIOverview() {
           AI overview · Updated {updated}
         </div>
 
-        <div className="inline-flex items-center gap-1 p-1 rounded-full bg-black/[.04]">
+        <div className="inline-flex items-center gap-1 p-1 rounded-full bg-white/[.06]">
           {TAB_ORDER.map((k) => {
             const active = activeTab === k;
             return (
@@ -269,7 +269,7 @@ export default function AIOverview() {
                 onClick={() => setActiveTab(k)}
                 className={`text-xs font-medium px-3.5 py-1.5 rounded-full transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
                   active
-                    ? "bg-white text-ink shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
+                    ? "bg-card text-ink shadow-[0_1px_3px_rgba(0,0,0,0.45)]"
                     : "text-muted hover:text-ink"
                 }`}
               >

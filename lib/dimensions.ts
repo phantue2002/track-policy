@@ -67,12 +67,12 @@ export const DIMENSION_TEXT: Record<
   string
 > = {
   environmental: "#FFFFFF",
-  energy: "#1D1D1F",
+  energy: "#f8fafc",
   community: "#FFFFFF",
   "land-use": "#FFFFFF",
   "ai-governance-dim": "#FFFFFF",
   "ai-consumer": "#FFFFFF",
-  "ai-workforce": "#1D1D1F",
+  "ai-workforce": "#f8fafc",
   "ai-public": "#FFFFFF",
   "ai-synthetic": "#FFFFFF",
 };

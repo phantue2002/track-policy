@@ -46,7 +46,7 @@ function uniq(tags: ImpactTag[]): ImpactTag[] {
 
 export default function NuanceLegend() {
   return (
-    <div className="bg-card border border-black/[.06] rounded-3xl p-6">
+    <div className="bg-card border border-hairline rounded-3xl p-6">
       <h3 className="text-sm font-semibold text-ink tracking-tight mb-1">
         Impact tags
       </h3>
@@ -73,7 +73,7 @@ export default function NuanceLegend() {
                       {tags.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[11px] bg-black/[.04] text-muted px-2 py-0.5 rounded-full inline-flex items-center gap-1.5"
+                          className="text-[11px] bg-white/[.06] text-muted px-2 py-0.5 rounded-full inline-flex items-center gap-1.5"
                         >
                           <span
                             className="w-1.5 h-1.5 rounded-full"

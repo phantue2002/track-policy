@@ -1,38 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Match AI Policy Desk — DM Sans body, Instrument Serif for display */
+  --font-sans: var(--font-sans-tp), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-tp), Georgia, serif;
 
-  /* Off-white warm neutral — beige stripped ~90% */
-  --color-bg: #FAFAF8;
-  --color-card: #FFFFFF;
+  /* Dark-first surfaces — mirrors aipolicydesk.com tokens */
+  --color-bg: #020617;    /* slate-950 */
+  --color-card: #0f172a;  /* slate-900 elevated */
 
-  /* Apple-style neutrals */
-  --color-ink: #1D1D1F;
-  --color-muted: #86868B;
-  --color-hairline: rgba(0, 0, 0, 0.06);
+  /* Text — light on dark */
+  --color-ink: #f8fafc;      /* slate-50 */
+  --color-muted: #b0b8c8;    /* slate-300 muted */
+  --color-hairline: rgba(30, 41, 59, 0.9); /* slate-800 border */
 
-  /* Map base */
-  --color-map-neutral: #ECECEC;
-  --color-map-stroke: #D2D2D2;
+  /* Brand */
+  --color-primary: #6366f1;  /* indigo-500 */
+  --color-accent: #a78bfa;   /* violet-400 */
+
+  /* Map base — dark */
+  --color-map-neutral: #1e293b;  /* slate-800 */
+  --color-map-stroke: #334155;   /* slate-700 */
 
   /* Stance — muted diverging palette: rose → amber → gold → neutral → mint.
      Ordered from most restrictive to most favorable. Shared across map fills,
-     badges, and summary bar segments. */
-  --color-stance-restrictive: #D98080;
-  --color-stance-concerning: #D9A766;
-  --color-stance-review: #D9C980;
-  --color-stance-none: #C9CBD1;
-  --color-stance-favorable: #7EBC8E;
+     badges, and summary bar segments.
+     Slightly brighter for legibility on dark backgrounds. */
+  --color-stance-restrictive: #f87171;  /* red-400 */
+  --color-stance-concerning: #fb923c;   /* orange-400 */
+  --color-stance-review: #facc15;       /* yellow-400 */
+  --color-stance-none: #64748b;         /* slate-500 */
+  --color-stance-favorable: #34d399;    /* emerald-400 */
 }
 
 html,
 body {
   background-color: var(--color-bg);
   color: var(--color-ink);
-  /* Pin the whole app to Inter explicitly so we never silently fall
-     through to `system-ui` (SF Pro on macOS). */
-  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans-tp), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Mobile Safari (iOS) auto-zooms into any form field whose computed

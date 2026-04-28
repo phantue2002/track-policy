@@ -82,7 +82,7 @@ export default function Page() {
       <div className="h-[400vh]" aria-hidden />
 
       {/* Section 1 — At a glance: summary stats + color-by toggle */}
-      <section className="relative z-10 bg-white border-t border-black/[.06]">
+      <section className="relative z-10 bg-bg border-t border-hairline">
         <div className="max-w-5xl mx-auto px-8 pt-20 pb-16">
           <div className="text-[13px] font-medium text-muted tracking-tight mb-2">
             01 · At a glance
@@ -105,7 +105,7 @@ export default function Page() {
       </section>
 
       {/* Section 2 — AI overview narrative */}
-      <section className="relative z-10 bg-bg border-t border-black/[.06]">
+      <section className="relative z-10 bg-bg border-t border-hairline">
         <div className="max-w-5xl mx-auto px-8 py-20">
           <div className="text-[13px] font-medium text-muted tracking-tight mb-2">
             02 · Latest developments
@@ -122,7 +122,7 @@ export default function Page() {
       {/* Section 3 — Full legislation table */}
       <section
         id="legislation"
-        className="relative z-10 bg-white border-t border-black/[.06] scroll-mt-20"
+        className="relative z-10 bg-bg border-t border-hairline scroll-mt-20"
       >
         <div className="max-w-5xl mx-auto px-8 pt-20 pb-24">
           <div className="text-[13px] font-medium text-muted tracking-tight mb-2">
@@ -143,7 +143,7 @@ export default function Page() {
       {/* Section 4 — Where the compute lives: data center inventory */}
       <section
         id="datacenters"
-        className="relative z-10 bg-bg border-t border-black/[.06] scroll-mt-20"
+        className="relative z-10 bg-bg border-t border-hairline scroll-mt-20"
       >
         <div className="max-w-5xl mx-auto px-8 pt-20 pb-24">
           <div className="text-[13px] font-medium text-muted tracking-tight mb-2">
@@ -169,7 +169,7 @@ export default function Page() {
       {/* Section 5 — Who voted how */}
       <section
         id="politicians"
-        className="relative z-10 bg-white border-t border-black/[.06] scroll-mt-20"
+        className="relative z-10 bg-bg border-t border-hairline scroll-mt-20"
       >
         <div className="max-w-5xl mx-auto px-8 pt-20 pb-24">
           <div className="text-[13px] font-medium text-muted tracking-tight mb-2">
@@ -191,7 +191,7 @@ export default function Page() {
       {/* Section 6 — Live news feed */}
       <section
         id="news"
-        className="relative z-10 bg-bg border-t border-black/[.06] scroll-mt-20"
+        className="relative z-10 bg-bg border-t border-hairline scroll-mt-20"
       >
         <div className="max-w-5xl mx-auto px-8 pt-20 pb-24">
           <div className="text-[13px] font-medium text-muted tracking-tight mb-2">
@@ -213,7 +213,7 @@ export default function Page() {
       </section>
 
       {/* Footer */}
-      <section className="relative z-10 bg-white border-t border-black/[.06]">
+      <section className="relative z-10 bg-bg border-t border-hairline">
         <div className="max-w-5xl mx-auto px-8 py-10 flex flex-wrap items-center justify-between gap-4 text-xs text-muted">
           <span>Track Policy</span>
           <div className="flex gap-6">

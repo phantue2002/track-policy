@@ -128,7 +128,7 @@ export default function SearchPill({ open, onClose, onNavigate }: SearchPillProp
       role="dialog"
       aria-modal="true"
       aria-label="Search"
-      className={`fixed inset-0 z-40 flex items-start justify-center pt-[14vh] px-4 bg-white/55 backdrop-blur-2xl transition-[opacity,backdrop-filter] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+      className={`fixed inset-0 z-40 flex items-start justify-center pt-[14vh] px-4 bg-bg/80 backdrop-blur-2xl transition-[opacity,backdrop-filter] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${
         open ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
@@ -140,7 +140,7 @@ export default function SearchPill({ open, onClose, onNavigate }: SearchPillProp
             : "opacity-0 scale-95 -translate-y-3"
         }`}
       >
-        <div className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-white/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.15),0_2px_8px_rgba(0,0,0,0.06)] border border-black/[.04]">
+        <div className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-card/95 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.55),0_2px_8px_rgba(0,0,0,0.40)] border border-hairline">
           <SearchIcon />
           <input
             ref={inputRef}
@@ -164,7 +164,7 @@ export default function SearchPill({ open, onClose, onNavigate }: SearchPillProp
           )}
         </div>
         {results.length > 0 && (
-          <div className="bg-white/95 backdrop-blur-2xl rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.04)] border border-black/[.04] max-h-[60vh] overflow-y-auto p-1">
+          <div className="bg-card/95 backdrop-blur-2xl rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.30)] border border-hairline max-h-[60vh] overflow-y-auto p-1">
             {results.map((r, idx) => {
               const active = idx === activeIdx;
               return (

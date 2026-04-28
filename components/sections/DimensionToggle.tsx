@@ -91,7 +91,7 @@ export default function DimensionToggle({
           position with a spring. The non-active button's text color
           eases to ink on hover and on the way in. */}
       <div
-        className="relative inline-flex items-center gap-1 p-1 rounded-full bg-black/[.04] mb-2"
+        className="relative inline-flex items-center gap-1 p-1 rounded-full bg-white/[.06] mb-2"
         role="tablist"
       >
         {(Object.keys(LENS_LABEL) as DimensionLens[]).map((l) => {
@@ -111,9 +111,9 @@ export default function DimensionToggle({
               {active && (
                 <motion.span
                   layoutId="lens-indicator"
-                  className="absolute inset-0 rounded-full bg-white"
+                  className="absolute inset-0 rounded-full bg-card"
                   style={{
-                    boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+                    boxShadow: "0 1px 3px rgba(0,0,0,0.45)",
                   }}
                   transition={{
                     type: "spring",
@@ -143,8 +143,8 @@ export default function DimensionToggle({
           if (active) {
             if (d === "overall") {
               activeStyle = {
-                backgroundColor: "#1D1D1F",
-                borderColor: "#1D1D1F",
+                backgroundColor: "#f8fafc",
+                borderColor: "#f8fafc",
                 color: "#FFFFFF",
               };
             } else {
@@ -164,7 +164,7 @@ export default function DimensionToggle({
               className={`inline-flex items-center rounded-full border px-4 py-2 text-xs font-medium transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
                 active
                   ? "border-transparent"
-                  : "border-black/[.06] text-muted hover:text-ink hover:bg-black/[.02]"
+                  : "border-hairline text-muted hover:text-ink hover:bg-card/60"
               }`}
             >
               {DIMENSION_LABEL[d]}

@@ -45,7 +45,7 @@ const GROUPS: { title: string; rows: Row[] }[] = [
 
 function Kbd({ children }: { children: React.ReactNode }) {
   return (
-    <kbd className="inline-flex items-center justify-center min-w-[1.6rem] h-[1.6rem] px-1.5 rounded-md bg-bg/80 border border-black/[.06] text-[11px] font-medium text-ink tracking-tight font-sans">
+    <kbd className="inline-flex items-center justify-center min-w-[1.6rem] h-[1.6rem] px-1.5 rounded-md bg-bg/80 border border-hairline text-[11px] font-medium text-ink tracking-tight font-sans">
       {children}
     </kbd>
   );
@@ -75,13 +75,13 @@ export default function ShortcutsHelp({ open, onClose }: ShortcutsHelpProps) {
       role="dialog"
       aria-modal="true"
       aria-label="Keyboard shortcuts"
-      className={`fixed inset-0 z-40 flex items-start justify-center pt-[14vh] px-4 bg-white/55 backdrop-blur-2xl transition-[opacity,backdrop-filter] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+      className={`fixed inset-0 z-40 flex items-start justify-center pt-[14vh] px-4 bg-bg/80 backdrop-blur-2xl transition-[opacity,backdrop-filter] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${
         open ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
       <div
         ref={cardRef}
-        className={`w-full max-w-[26rem] rounded-3xl bg-white/95 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.14),0_2px_10px_rgba(0,0,0,0.06)] border border-black/[.04] p-5 transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform ${
+        className={`w-full max-w-[26rem] rounded-3xl bg-card/95 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.55),0_2px_10px_rgba(0,0,0,0.40)] border border-hairline p-5 transition-[transform,opacity] duration-[350ms] ease-[cubic-bezier(0.32,0.72,0,1)] will-change-transform ${
           open
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 -translate-y-3"

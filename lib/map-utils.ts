@@ -2,16 +2,16 @@ import type { Dispatch, SetStateAction } from "react";
 import type { Region, StanceType } from "@/types";
 
 export const STANCE_HEX: Record<StanceType, string> = {
-  restrictive: "#D98080",
-  concerning: "#D9A766",
-  review: "#D9C980",
-  none: "#C9CBD1",
-  favorable: "#7EBC8E",
+  restrictive: "#f87171",  /* red-400 — bright on dark */
+  concerning:  "#fb923c",  /* orange-400 */
+  review:      "#facc15",  /* yellow-400 */
+  none:        "#475569",  /* slate-600 */
+  favorable:   "#34d399",  /* emerald-400 */
 };
 
-export const NEUTRAL_FILL = "#EFEDE8";
-export const NEUTRAL_STROKE = "#E5E5E5";
-export const INK = "#1D1D1F";
+export const NEUTRAL_FILL   = "#1e293b";  /* slate-800 — dark map fill */
+export const NEUTRAL_STROKE = "#334155";  /* slate-700 — subtle border */
+export const INK = "#f8fafc";             /* slate-50 — label color on dark */
 
 export interface TooltipState {
   x: number;

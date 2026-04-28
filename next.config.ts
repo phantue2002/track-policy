@@ -1,6 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Mount under /global-tracker when served via AI Policy Desk multi-zone proxy.
+  basePath: "/global-tracker",
+  assetPrefix: "/global-tracker",
+
+  // Required for standalone Docker output.
+  output: "standalone",
+
   // Strip console.* in production builds (keeps console.error / warn for
   // genuine problems). Removes the lone bioguide-mismatch warn that ships
   // from lib/politicians-data.ts.

@@ -122,8 +122,8 @@ export default function PoliticiansOverview() {
                 onClick={() => setScope(s.key)}
                 className={`text-xs px-3 py-1.5 rounded-full transition-colors ${
                   active
-                    ? "bg-ink text-white"
-                    : "bg-black/[.04] text-muted hover:bg-black/[.08] hover:text-ink"
+                    ? "bg-primary text-white"
+                    : "bg-white/[.06] text-muted hover:bg-white/10 hover:text-ink"
                 }`}
               >
                 {s.label}
@@ -187,7 +187,7 @@ function PersonDetail({
         }`}
       >
         {politician && (
-          <div className="mt-2 rounded-2xl bg-white shadow-[0_6px_20px_rgba(0,0,0,0.04),0_1px_4px_rgba(0,0,0,0.03)] p-5 flex flex-col gap-4">
+          <div className="mt-2 rounded-2xl bg-card shadow-[0_6px_20px_rgba(0,0,0,0.30),0_1px_4px_rgba(0,0,0,0.25)] p-5 flex flex-col gap-4">
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-start gap-3 min-w-0">
                 <Avatar p={politician} />
@@ -281,8 +281,8 @@ function PersonTile({
       aria-expanded={isActive}
       className={`group rounded-2xl p-4 flex items-start gap-3 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] text-left ${
         isActive
-          ? "bg-white shadow-[0_6px_20px_rgba(0,0,0,0.04),0_1px_4px_rgba(0,0,0,0.03)]"
-          : "bg-bg/60 hover:bg-white hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.04),0_1px_4px_rgba(0,0,0,0.03)]"
+          ? "bg-card shadow-[0_6px_20px_rgba(0,0,0,0.30),0_1px_4px_rgba(0,0,0,0.25)]"
+          : "bg-bg/60 hover:bg-card hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.30),0_1px_4px_rgba(0,0,0,0.25)]"
       }`}
     >
       <Avatar p={p} />
@@ -309,14 +309,14 @@ function Avatar({ p }: { p: Legislator }) {
         height={40}
         sizes="40px"
         loading="lazy"
-        className="w-10 h-10 rounded-full object-cover flex-shrink-0 bg-black/[.04]"
+        className="w-10 h-10 rounded-full object-cover flex-shrink-0 bg-white/[.06]"
         onError={() => setErrored(true)}
       />
     );
   }
   const initials = initialsFor(p.name);
   return (
-    <div className="w-10 h-10 rounded-full bg-black/[.04] flex items-center justify-center text-[11px] font-medium text-muted flex-shrink-0">
+    <div className="w-10 h-10 rounded-full bg-white/[.06] flex items-center justify-center text-[11px] font-medium text-muted flex-shrink-0">
       {initials}
     </div>
   );

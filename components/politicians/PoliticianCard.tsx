@@ -45,8 +45,8 @@ export default function PoliticianCard({ politician: p, defaultOpen }: Props) {
       }}
       className={`w-full text-left rounded-2xl transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] ${
         isOpen
-          ? "bg-white shadow-[0_8px_24px_rgba(0,0,0,0.06),0_1px_4px_rgba(0,0,0,0.03)] ring-1 ring-black/[.04]"
-          : "bg-bg/60 hover:bg-white hover:shadow-[0_6px_20px_rgba(0,0,0,0.05),0_1px_4px_rgba(0,0,0,0.03)]"
+          ? "bg-card shadow-[0_8px_24px_rgba(0,0,0,0.40),0_1px_4px_rgba(0,0,0,0.25)] ring-1 ring-hairline"
+          : "bg-bg/60 hover:bg-card hover:shadow-[0_6px_20px_rgba(0,0,0,0.35),0_1px_4px_rgba(0,0,0,0.25)]"
       }`}
     >
       {/* Header — always visible. Tight on mobile, roomy on desktop. */}
@@ -136,7 +136,7 @@ function Avatar({ name, photoUrl }: { name: string; photoUrl?: string }) {
         height={48}
         sizes="48px"
         loading="lazy"
-        className={`w-12 h-12 rounded-full object-cover flex-shrink-0 bg-black/[.04] ${ring}`}
+        className={`w-12 h-12 rounded-full object-cover flex-shrink-0 bg-white/[.06] ${ring}`}
         onError={() => setErrored(true)}
       />
     );
@@ -149,7 +149,7 @@ function Avatar({ name, photoUrl }: { name: string; photoUrl?: string }) {
     .toUpperCase();
   return (
     <div
-      className={`w-12 h-12 rounded-full bg-black/[.04] flex items-center justify-center text-[13px] font-semibold text-muted flex-shrink-0 ${ring}`}
+      className={`w-12 h-12 rounded-full bg-white/[.06] flex items-center justify-center text-[13px] font-semibold text-muted flex-shrink-0 ${ring}`}
     >
       {initials}
     </div>
@@ -160,7 +160,7 @@ function Chevron({ open }: { open: boolean }) {
   return (
     <span
       aria-hidden
-      className={`flex-shrink-0 mt-1 w-6 h-6 rounded-full flex items-center justify-center text-muted transition-colors ${open ? "bg-black/[.05]" : ""}`}
+      className={`flex-shrink-0 mt-1 w-6 h-6 rounded-full flex items-center justify-center text-muted transition-colors ${open ? "bg-white/[.07]" : ""}`}
     >
       <svg
         width="11"
@@ -201,7 +201,7 @@ function StanceTag({
   const inferredSuffix =
     tone === "inferred" ? (hint ? ` · ${hint}` : " · inferred") : "";
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-black/[.04] px-2 py-0.5 max-w-full">
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-white/[.06] px-2 py-0.5 max-w-full">
       <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${story.dot}`} aria-hidden />
       <span className="text-[11px] text-ink/85 tracking-tight truncate">
         {label}
@@ -557,7 +557,7 @@ function DimeSpectrum({ score }: { score: number }) {
         <span>Centrist</span>
         <span>Conservative</span>
       </div>
-      <div className="relative h-1 rounded-full bg-black/[.06]">
+      <div className="relative h-1 rounded-full bg-white/[.08]">
         <div
           className="absolute top-1/2 w-2.5 h-2.5 rounded-full bg-ink -translate-y-1/2 -translate-x-1/2 ring-2 ring-white"
           style={{ left: `${pct}%` }}

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-bg">
       <div className="max-w-3xl mx-auto px-8 py-24">
         <Link
           href="/"
@@ -36,7 +36,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="mt-12 pt-10 border-t border-black/[.06] space-y-5">
+        <div className="mt-12 pt-10 border-t border-hairline space-y-5">
           <div>
             <div className="text-[11px] font-medium tracking-tight text-muted mb-1.5">
               Email

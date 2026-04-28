@@ -504,7 +504,7 @@ export default function CountyMap({
             const hasData = !!municipality;
             const isSelected = selectedCountyFips === fips;
             const fill = hasData ? statusFill(dominant) : NEUTRAL_FILL;
-            const stroke = isSelected ? "#1D1D1F" : NEUTRAL_STROKE;
+            const stroke = isSelected ? "#FFFFFF" : NEUTRAL_STROKE;
             const strokeWidth = isSelected ? 2 : 0.5;
             return (
               <path
@@ -520,7 +520,7 @@ export default function CountyMap({
                   transition:
                     "stroke 200ms, stroke-width 200ms, filter 200ms",
                   filter: isSelected
-                    ? "drop-shadow(0 4px 12px rgba(0,0,0,0.15))"
+                    ? "drop-shadow(0 4px 12px rgba(0,0,0,0.55))"
                     : undefined,
                   outline: "none",
                 }}
@@ -641,15 +641,15 @@ export default function CountyMap({
                     fontSize: 10.5,
                     fontWeight: 600,
                     letterSpacing: "-0.01em",
-                    color: "#1D1D1F",
+                    color: "#f8fafc",
                     background: "rgba(255,255,255,0.92)",
                     backdropFilter: "blur(10px)",
                     WebkitBackdropFilter: "blur(10px)",
                     padding: "4px 9px",
                     borderRadius: 999,
-                    border: "1px solid rgba(0,0,0,0.06)",
+                    border: "1px solid rgba(0,0,0,0.40)",
                     boxShadow:
-                      "0 2px 8px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)",
+                      "0 2px 8px rgba(0,0,0,0.45), 0 1px 2px rgba(0,0,0,0.30)",
                     whiteSpace: "nowrap",
                   }}
                 >

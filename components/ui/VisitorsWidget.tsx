@@ -162,10 +162,10 @@ export default function VisitorsWidget() {
 
   return (
     <div
-      className="inline-flex items-center gap-2 rounded-full bg-white/85 backdrop-blur-2xl border border-black/[.04] px-3 py-1.5 text-[11px] tracking-tight"
+      className="inline-flex items-center gap-2 rounded-full bg-card/85 backdrop-blur-2xl border border-hairline px-3 py-1.5 text-[11px] tracking-tight"
       style={{
         boxShadow:
-          "0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)",
+          "0 8px 32px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.30)",
       }}
       aria-live="polite"
       aria-atomic="true"

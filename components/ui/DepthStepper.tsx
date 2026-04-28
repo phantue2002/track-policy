@@ -51,7 +51,7 @@ export default function DepthStepper({
       {pickerOpen && (
         <div
           role="listbox"
-          className="mb-2 min-w-[13rem] rounded-2xl bg-white/95 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.14),0_2px_10px_rgba(0,0,0,0.06)] border border-black/[.05] p-1 animate-[fadein_180ms_ease]"
+          className="mb-2 min-w-[13rem] rounded-2xl bg-card/95 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.55),0_2px_10px_rgba(0,0,0,0.40)] border border-hairline p-1 animate-[fadein_180ms_ease]"
         >
           {REGION_ORDER.map((r) => {
             const active = r === region;
@@ -73,7 +73,7 @@ export default function DepthStepper({
               >
                 <span
                   className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${
-                    active ? "bg-ink" : "bg-black/20"
+                    active ? "bg-ink" : "bg-white/20"
                   }`}
                 />
                 {REGION_LABEL[r]}
@@ -85,7 +85,7 @@ export default function DepthStepper({
 
       <nav
         aria-label="Drill path"
-        className="inline-flex items-center px-1.5 py-1.5 rounded-full bg-white/85 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.04)] border border-black/[.04] max-w-[min(90vw,44rem)]"
+        className="inline-flex items-center px-1.5 py-1.5 rounded-full bg-card/85 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.1),0_2px_8px_rgba(0,0,0,0.30)] border border-hairline max-w-[min(90vw,44rem)]"
       >
         <button
           type="button"
@@ -95,7 +95,7 @@ export default function DepthStepper({
           className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs tracking-tight transition-colors flex-shrink-0 ${
             atTop
               ? "text-ink font-medium"
-              : "text-muted hover:text-ink hover:bg-black/[.04]"
+              : "text-muted hover:text-ink hover:bg-white/[.06]"
           }`}
         >
           <span
@@ -141,7 +141,7 @@ export default function DepthStepper({
                     <button
                       type="button"
                       onClick={seg.onClick}
-                      className="px-2.5 py-1 rounded-full text-xs tracking-tight text-muted hover:text-ink hover:bg-black/[.04] transition-colors truncate max-w-[10rem]"
+                      className="px-2.5 py-1 rounded-full text-xs tracking-tight text-muted hover:text-ink hover:bg-white/[.06] transition-colors truncate max-w-[10rem]"
                     >
                       {seg.label}
                     </button>

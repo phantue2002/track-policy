@@ -112,7 +112,7 @@ export function DcIcon({
         width={d}
         height={d}
         rx={rx}
-        fill="black"
+        fill="rgba(0,0,0,0.6)"
         fillOpacity={0.14}
         style={{ filter: "url(#dc-shadow)", pointerEvents: "none" }}
       />

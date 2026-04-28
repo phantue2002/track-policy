@@ -340,7 +340,7 @@ export default function LegislationTable({
     <div>
       {/* Search input */}
       <div className="mb-6">
-        <div className="max-w-md flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white border border-black/[.06] focus-within:border-black/20 transition-colors">
+        <div className="max-w-md flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-card border border-hairline focus-within:border-hairline transition-colors">
           <svg
             width="14"
             height="14"
@@ -405,8 +405,8 @@ export default function LegislationTable({
                 onClick={() => setActiveJurisdiction(opt.key)}
                 className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
                   active
-                    ? "bg-ink text-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                    : "border border-black/[.06] text-muted hover:text-ink hover:bg-black/[.02]"
+                    ? "bg-primary text-white shadow-[0_1px_3px_rgba(0,0,0,0.45)]"
+                    : "border border-hairline text-muted hover:text-ink hover:bg-white/[.04]"
                 }`}
               >
                 <span>{opt.label}</span>
@@ -438,8 +438,8 @@ export default function LegislationTable({
                   onClick={() => setActiveCategory(c)}
                   className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
                     active
-                      ? "bg-ink text-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                      : "border border-black/[.06] text-muted hover:text-ink hover:bg-black/[.02]"
+                      ? "bg-primary text-white shadow-[0_1px_3px_rgba(0,0,0,0.45)]"
+                      : "border border-hairline text-muted hover:text-ink hover:bg-white/[.04]"
                   }`}
                 >
                   <span>{CATEGORY_FILTER_LABEL[c]}</span>
@@ -469,8 +469,8 @@ export default function LegislationTable({
                 onClick={() => setActiveStatus(opt.key)}
                 className={`inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] ${
                   active
-                    ? "bg-ink text-white shadow-[0_1px_3px_rgba(0,0,0,0.08)]"
-                    : "border border-black/[.06] text-muted hover:text-ink hover:bg-black/[.02]"
+                    ? "bg-primary text-white shadow-[0_1px_3px_rgba(0,0,0,0.45)]"
+                    : "border border-hairline text-muted hover:text-ink hover:bg-white/[.04]"
                 }`}
               >
                 <span>{opt.label}</span>
@@ -492,7 +492,7 @@ export default function LegislationTable({
           <select
             value={sortKey}
             onChange={(e) => setSortKey(e.target.value as SortKey)}
-            className="appearance-none rounded-full bg-black/[.04] hover:bg-black/[.06] text-ink text-xs font-medium pl-3 pr-7 py-1.5 cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/20"
+            className="appearance-none rounded-full bg-white/[.06] hover:bg-white/[.08] text-ink text-xs font-medium pl-3 pr-7 py-1.5 cursor-pointer transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.97] focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/20"
           >
             {SORT_OPTIONS.map((opt) => (
               <option key={opt.key} value={opt.key}>
@@ -551,7 +551,7 @@ export default function LegislationTable({
                     delay,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="bg-bg/60 hover:bg-bg hover:shadow-[0_10px_28px_rgba(0,0,0,0.06),0_2px_6px_rgba(0,0,0,0.03)] rounded-2xl p-5 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]"
+                  className="bg-bg/60 hover:bg-bg hover:shadow-[0_10px_28px_rgba(0,0,0,0.40),0_2px_6px_rgba(0,0,0,0.25)] rounded-2xl p-5 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]"
                 >
                   <div
                     role="button"
@@ -617,7 +617,7 @@ export default function LegislationTable({
             <div className="mt-6 flex justify-center">
               <Link
                 href="/bills"
-                className="rounded-full border border-black/[.06] text-muted hover:text-ink px-5 py-2 text-xs font-medium transition-colors"
+                className="rounded-full border border-hairline text-muted hover:text-ink px-5 py-2 text-xs font-medium transition-colors"
               >
                 Show all {filtered.length} bills →
               </Link>

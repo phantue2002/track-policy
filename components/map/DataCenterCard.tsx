@@ -107,10 +107,10 @@ export default function DataCenterCard({
       aria-hidden
     >
       <div
-        className="rounded-2xl bg-white/95 backdrop-blur-2xl border border-black/[.04] overflow-hidden"
+        className="rounded-2xl bg-card/95 backdrop-blur-2xl border border-hairline overflow-hidden"
         style={{
           boxShadow:
-            "0 12px 36px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.05)",
+            "0 12px 36px rgba(0,0,0,0.50), 0 2px 8px rgba(0,0,0,0.35)",
         }}
       >
         {/* Type scale (shared with the map tooltip):
@@ -137,7 +137,7 @@ export default function DataCenterCard({
         </div>
 
         {rows.length > 0 && (
-          <dl className="mx-3.5 pt-2 pb-2.5 border-t border-black/[.05] flex flex-col gap-0.5">
+          <dl className="mx-3.5 pt-2 pb-2.5 border-t border-hairline flex flex-col gap-0.5">
             {rows.map((r) => (
               <div
                 key={r.label}
@@ -155,7 +155,7 @@ export default function DataCenterCard({
         )}
 
         {facility.proposal?.process && facility.proposal.process.length > 0 && (
-          <div className="px-3.5 pt-2.5 pb-2.5 border-t border-black/[.05]">
+          <div className="px-3.5 pt-2.5 pb-2.5 border-t border-hairline">
             <ProposalProgress process={facility.proposal.process} variant="dense" />
             {facility.proposal.nextDecision && (
               <div className="mt-2">
@@ -181,7 +181,7 @@ export default function DataCenterCard({
           </div>
         )}
 
-        <div className="px-3.5 pb-3 pt-1.5 border-t border-black/[.05] flex items-center justify-between gap-3">
+        <div className="px-3.5 pb-3 pt-1.5 border-t border-hairline flex items-center justify-between gap-3">
           <span className="text-[11px] text-muted tracking-tight">
             {isCluster
               ? `+ ${clusterSize - 1} more nearby`

@@ -148,7 +148,7 @@ export default function USStatesMap({
                 filter: isDrillTarget
                   ? "drop-shadow(0 22px 40px rgba(0,0,0,0.35)) drop-shadow(0 6px 14px rgba(0,0,0,0.18)) brightness(1.06)"
                   : isSelected
-                    ? "drop-shadow(0 4px 12px rgba(0,0,0,0.15))"
+                    ? "drop-shadow(0 4px 12px rgba(0,0,0,0.55))"
                     : undefined,
               };
 

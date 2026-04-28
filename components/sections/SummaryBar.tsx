@@ -21,31 +21,31 @@ const BUCKETS: Bucket[] = [
     key: "restrictive",
     label: STANCE_LABEL.restrictive,
     color: "var(--color-stance-restrictive)",
-    textColor: "#1D1D1F",
+    textColor: "#f8fafc",
   },
   {
     key: "concerning",
     label: STANCE_LABEL.concerning,
     color: "var(--color-stance-concerning)",
-    textColor: "#1D1D1F",
+    textColor: "#f8fafc",
   },
   {
     key: "review",
     label: STANCE_LABEL.review,
     color: "var(--color-stance-review)",
-    textColor: "#1D1D1F",
+    textColor: "#f8fafc",
   },
   {
     key: "none",
     label: STANCE_LABEL.none,
     color: "var(--color-stance-none)",
-    textColor: "#1D1D1F",
+    textColor: "#f8fafc",
   },
   {
     key: "favorable",
     label: STANCE_LABEL.favorable,
     color: "var(--color-stance-favorable)",
-    textColor: "#1D1D1F",
+    textColor: "#f8fafc",
   },
 ];
 

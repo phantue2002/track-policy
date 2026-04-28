@@ -27,7 +27,7 @@ const DOT_BASE =
 
 const DOT_STYLE: Record<ProposalGateStatus, string> = {
   done: "bg-stance-favorable",
-  pending: "border border-black/25",
+  pending: "border border-hairline",
   blocked: "bg-stance-restrictive",
 };
 

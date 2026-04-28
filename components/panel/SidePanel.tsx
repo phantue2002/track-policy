@@ -138,7 +138,7 @@ function ToolbarButton({
       type="button"
       onClick={onClick}
       aria-label={ariaLabel}
-      className="w-6 h-6 flex items-center justify-center rounded-full text-muted hover:text-ink hover:bg-black/[.04] transition-colors flex-shrink-0"
+      className="w-6 h-6 flex items-center justify-center rounded-full text-muted hover:text-ink hover:bg-white/[.06] transition-colors flex-shrink-0"
     >
       {children}
     </button>
@@ -496,7 +496,7 @@ export default function SidePanel({
             transforms mid-drag. Widens and darkens while actively held. */}
         <div
           className={`h-1 rounded-full transition-all duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] ${
-            isDragging ? "bg-black/30 w-12" : "bg-black/15 w-9"
+            isDragging ? "bg-white/30 w-12" : "bg-white/15 w-9"
           }`}
         />
       </div>
@@ -511,7 +511,7 @@ export default function SidePanel({
         </div>
       ) : (
         <div ref={scrollRef} className="flex-1 overflow-y-auto">
-          <div className="px-6 pt-1 pb-5 border-b border-black/[.06]">
+          <div className="px-6 pt-1 pb-5 border-b border-hairline">
             <h2 className="text-2xl font-semibold text-ink tracking-tight">
               {entity.name}
             </h2>
@@ -539,12 +539,12 @@ export default function SidePanel({
                 the instant they make a selection. Avoids needing a
                 dismissible tutorial. */}
             {entity.isOverview && (
-              <div className="rounded-2xl bg-[oklch(0.96_0.025_85)] border border-[oklch(0.88_0.05_85)]/50 px-4 py-3 text-[12px] text-ink/80 leading-relaxed">
+              <div className="rounded-2xl bg-primary/10 border border-primary/20 px-4 py-3 text-[12px] text-ink/80 leading-relaxed">
                 <div className="text-ink font-semibold mb-0.5">
                   Click anywhere to explore
                 </div>
                 A country, state, or any data center pin opens its
-                detail. <span className="hidden lg:inline">Press <kbd className="font-sans px-1 rounded bg-white/85 border border-black/[.08] text-[10px] text-ink">?</kbd> for keyboard shortcuts.</span>
+                detail. <span className="hidden lg:inline">Press <kbd className="font-sans px-1 rounded bg-bg border border-hairline text-[10px] text-ink">?</kbd> for keyboard shortcuts.</span>
               </div>
             )}
 
@@ -554,7 +554,7 @@ export default function SidePanel({
               <button
                 type="button"
                 onClick={onViewStates}
-                className="self-start rounded-full bg-ink text-white text-xs font-medium px-4 py-2 hover:bg-ink/90 transition-colors"
+                className="self-start rounded-full bg-primary text-white text-xs font-medium px-4 py-2 hover:bg-primary/90 transition-colors"
               >
                 View state policies →
               </button>
@@ -564,7 +564,7 @@ export default function SidePanel({
               <button
                 type="button"
                 onClick={onViewCounties}
-                className="self-start rounded-full bg-ink text-white text-xs font-medium px-4 py-2 hover:bg-ink/90 transition-colors"
+                className="self-start rounded-full bg-primary text-white text-xs font-medium px-4 py-2 hover:bg-primary/90 transition-colors"
               >
                 View local actions →
               </button>
@@ -590,7 +590,7 @@ export default function SidePanel({
                       • 1 tab    → size to content so a lone "News" pill
                         doesn't stretch across the whole panel. */}
                   <div
-                    className={`relative flex items-center gap-0.5 p-1 rounded-full bg-black/[.04] ${
+                    className={`relative flex items-center gap-0.5 p-1 rounded-full bg-white/[.06] ${
                       availableLayers.length === 1 ? "" : "w-full"
                     }`}
                   >
@@ -635,9 +635,9 @@ export default function SidePanel({
                         {active && (
                           <motion.span
                             layoutId="sidepanel-layer-indicator"
-                            className="absolute inset-0 rounded-full bg-white"
+                            className="absolute inset-0 rounded-full bg-bg"
                             style={{
-                              boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+                              boxShadow: "0 1px 3px rgba(0,0,0,0.45)",
                             }}
                             // Bouncier than the default MotionConfig spring
                             // so the pill overshoots a touch and settles —
@@ -774,7 +774,7 @@ export default function SidePanel({
           : `${TRANSITION}, background-color 350ms ease, border-color 350ms ease, border-radius 350ms ease`,
         willChange: "transform",
       }}
-      className="fixed z-30 backdrop-blur-2xl border shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] flex flex-col overflow-hidden"
+      className="fixed z-30 backdrop-blur-2xl border shadow-[0_8px_32px_rgba(0,0,0,0.50),0_2px_8px_rgba(0,0,0,0.40)] flex flex-col overflow-hidden"
     >
       {isMin ? renderMin() : renderMd()}
     </aside>

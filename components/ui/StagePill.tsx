@@ -5,11 +5,11 @@ interface StagePillProps {
 }
 
 const STAGE_CLASSES: Record<Stage, string> = {
-  Filed: "bg-black/[.04] text-muted",
+  Filed: "bg-white/[.06] text-muted",
   Committee: "bg-amber-50 text-amber-700",
   Floor: "bg-orange-50 text-orange-600",
   Enacted: "bg-green-50 text-green-700",
-  "Carried Over": "bg-black/[.04] text-muted italic",
+  "Carried Over": "bg-white/[.06] text-muted italic",
   Dead: "bg-red-50 text-red-400 line-through",
 };
 

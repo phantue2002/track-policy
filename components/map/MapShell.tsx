@@ -1339,7 +1339,7 @@ export default function MapShell({
   }, [breadcrumbItems, selectedFacility]);
 
   return (
-    <div ref={mapRootRef} className="fixed inset-0 bg-white overflow-hidden z-0">
+    <div ref={mapRootRef} className="fixed inset-0 bg-bg overflow-hidden z-0">
       {/* Outer wrapper — animated extra zoom driven by panel state.
           Inner wrapper — scroll-driven base zoom (snaps with scroll). */}
       <div
@@ -1571,10 +1571,10 @@ export default function MapShell({
           }}
         >
           <div
-            className="rounded-2xl bg-white/92 backdrop-blur-2xl border border-black/[.04] overflow-hidden"
+            className="rounded-2xl bg-card/80 backdrop-blur-2xl border border-hairline overflow-hidden"
             style={{
               boxShadow:
-                "0 8px 32px rgba(0,0,0,0.08), 0 2px 10px rgba(0,0,0,0.04)",
+                "0 8px 32px rgba(0,0,0,0.45), 0 2px 10px rgba(0,0,0,0.30)",
             }}
           >
             <div className="px-4 pt-3 pb-3">
@@ -1586,7 +1586,7 @@ export default function MapShell({
                 <LegendRow color="#FF9500" label="Under construction" />
                 <LegendRow color="#5856D6" label="Proposed" hollow />
               </div>
-              <div className="mt-3 pt-2.5 border-t border-black/[.05]">
+              <div className="mt-3 pt-2.5 border-t border-hairline">
                 {/* Size-band key — dot size scales with cluster total MW,
                     mirroring the three buckets in DataCenterDots. Stacked
                     vertically so it reads alongside the status rows above. */}
@@ -1644,10 +1644,10 @@ export default function MapShell({
                 style={{ left: tooltip.x + 14, top: tooltip.y + 14 }}
               >
                 <div
-                  className="rounded-xl bg-white/92 backdrop-blur-2xl border border-black/[.04] px-3.5 py-3"
+                  className="rounded-xl bg-card/80 backdrop-blur-2xl border border-hairline px-3.5 py-3"
                   style={{
                     boxShadow:
-                      "0 6px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05)",
+                      "0 6px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.35)",
                   }}
                 >
                   {/* Header — name + stance label in muted color, same
@@ -1679,7 +1679,7 @@ export default function MapShell({
                       {visibleConcerns.map((tag) => (
                         <span
                           key={tag}
-                          className="text-[10.5px] text-muted bg-black/[.04] px-2 py-0.5 rounded-full tracking-tight"
+                          className="text-[10.5px] text-muted bg-white/[.06] px-2 py-0.5 rounded-full tracking-tight"
                         >
                           {IMPACT_TAG_LABEL[tag]}
                         </span>
@@ -1695,7 +1695,7 @@ export default function MapShell({
                   {/* Actions — top 3 most recent, each with stance dot,
                       title (2-line clamp), and a muted date tag. */}
                   {topActions.length > 0 && (
-                    <div className="mt-2.5 pt-2.5 border-t border-black/[.05] flex flex-col gap-1.5">
+                    <div className="mt-2.5 pt-2.5 border-t border-hairline flex flex-col gap-1.5">
                       {topActions.map((a, i) => {
                         const color = STANCE_HEX[actionStance(a.status)];
                         return (
@@ -1812,7 +1812,7 @@ export default function MapShell({
         if (!isRich) {
           return (
             <div
-              className="fixed bg-white/90 text-ink text-[11px] font-medium px-2.5 py-1 rounded-md pointer-events-none z-50 shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-black/[.04] tracking-tight"
+              className="fixed bg-card/90 text-ink text-[11px] font-medium px-2.5 py-1 rounded-md pointer-events-none z-50 shadow-[0_2px_8px_rgba(0,0,0,0.45)] border border-hairline tracking-tight"
               style={{ left: tooltip.x + 12, top: tooltip.y + 12 }}
             >
               {tooltip.label}
@@ -1826,9 +1826,9 @@ export default function MapShell({
             style={{ left: tooltip.x + 14, top: tooltip.y + 14 }}
           >
             <div
-              className="rounded-xl bg-white/92 backdrop-blur-2xl border border-black/[.04] px-4 py-3"
+              className="rounded-xl bg-card/80 backdrop-blur-2xl border border-hairline px-4 py-3"
               style={{
-                boxShadow: "0 6px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05)",
+                boxShadow: "0 6px 24px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.35)",
               }}
             >
               {/* Type scale (shared with DataCenterCard):
@@ -1992,7 +1992,7 @@ function PowerPlantLegend({ stateName }: { stateName: string }) {
   ];
   const fuels = ORDER.filter((f) => present.has(f));
   return (
-    <div className="mt-3 pt-2.5 border-t border-black/[.05]">
+    <div className="mt-3 pt-2.5 border-t border-hairline">
       <div className="text-[11px] font-semibold text-muted tracking-tight mb-2">
         Power plants
       </div>
@@ -2032,7 +2032,7 @@ function LegendRow({
         <span
           className="relative w-2 h-2 rounded-full"
           style={{
-            backgroundColor: hollow ? "#FFFFFF" : color,
+            backgroundColor: hollow ? "var(--color-card)" : color,
             border: hollow ? `1.25px solid ${color}` : "none",
           }}
         />

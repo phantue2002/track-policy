@@ -61,7 +61,7 @@ export default function BillExpanded({
   const href = bill.legiscanUrl ?? bill.sourceUrl;
 
   return (
-    <div className="pt-4 mt-4 border-t border-black/[.06] flex flex-col gap-4">
+    <div className="pt-4 mt-4 border-t border-hairline flex flex-col gap-4">
       {/* Meta row */}
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-muted">
         <span>{CATEGORY_LABEL[bill.category]}</span>
@@ -93,7 +93,7 @@ export default function BillExpanded({
           {bill.impactTags.map((tag) => (
             <span
               key={tag}
-              className="text-[11px] bg-black/[.04] text-muted px-2 py-0.5 rounded-full"
+              className="text-[11px] bg-white/[.06] text-muted px-2 py-0.5 rounded-full"
             >
               {IMPACT_TAG_LABEL[tag]}
             </span>
@@ -130,14 +130,14 @@ export default function BillExpanded({
                     e.stopPropagation();
                     onSelectFacility(f);
                   }}
-                  className="text-[11px] bg-black/[.04] hover:bg-black/[.08] text-muted hover:text-ink px-2 py-0.5 rounded-full tracking-tight transition-colors"
+                  className="text-[11px] bg-white/[.06] hover:bg-white/10 text-muted hover:text-ink px-2 py-0.5 rounded-full tracking-tight transition-colors"
                 >
                   {inner}
                 </button>
               ) : (
                 <span
                   key={f.id}
-                  className="text-[11px] bg-black/[.04] text-muted px-2 py-0.5 rounded-full tracking-tight"
+                  className="text-[11px] bg-white/[.06] text-muted px-2 py-0.5 rounded-full tracking-tight"
                 >
                   {inner}
                 </span>
@@ -200,7 +200,7 @@ function VoteTally({ bill }: { bill: Legislation }) {
   const total = t.yea + t.nay;
   const yeaPct = total > 0 ? (t.yea / total) * 100 : 0;
   return (
-    <div className="rounded-xl bg-black/[.02] p-3 flex flex-col gap-2">
+    <div className="rounded-xl bg-white/[.04] p-3 flex flex-col gap-2">
       <div className="flex items-baseline justify-between gap-2">
         <div className="text-[11px] font-medium text-muted tracking-tight">
           Floor vote · {formatVoteDate(t.voteDate)}
@@ -210,7 +210,7 @@ function VoteTally({ bill }: { bill: Legislation }) {
         </div>
       </div>
       <div
-        className="h-2 w-full rounded-full overflow-hidden bg-black/[.06] flex"
+        className="h-2 w-full rounded-full overflow-hidden bg-white/[.08] flex"
         aria-label={`${t.yea} yea, ${t.nay} nay`}
       >
         <span
@@ -259,7 +259,7 @@ function SponsorRow({
     );
   }
   return (
-    <div className="rounded-xl bg-black/[.02] p-3">
+    <div className="rounded-xl bg-white/[.04] p-3">
       <div className="flex items-baseline justify-between gap-2">
         <div className="text-xs font-medium text-ink">
           {profile.name}{" "}
@@ -285,7 +285,7 @@ function SponsorRow({
                 <div className="flex items-center gap-2 min-w-0">
                   <span
                     className={`w-1 h-1 rounded-full flex-shrink-0 ${
-                      relevant ? "bg-stance-concerning" : "bg-black/20"
+                      relevant ? "bg-stance-concerning" : "bg-white/20"
                     }`}
                   />
                   <span className="truncate text-muted">{d.name}</span>

@@ -160,7 +160,7 @@ function SearchPill({
   }, []);
 
   return (
-    <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/95 backdrop-blur-2xl shadow-[0_4px_16px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.04)] border border-black/[.04]">
+    <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-card/95 backdrop-blur-2xl shadow-[0_4px_16px_rgba(0,0,0,0.40),0_1px_3px_rgba(0,0,0,0.30)] border border-hairline">
       <SearchIcon />
       <input
         ref={inputRef}
@@ -196,7 +196,7 @@ function SearchPill({
           </svg>
         </button>
       ) : (
-        <kbd className="text-[10px] font-medium text-muted bg-black/[.04] px-1.5 py-0.5 rounded shrink-0 tracking-tight">
+        <kbd className="text-[10px] font-medium text-muted bg-white/[.06] px-1.5 py-0.5 rounded shrink-0 tracking-tight">
           {mac ? "⌘K" : "Ctrl K"}
         </kbd>
       )}
@@ -256,8 +256,8 @@ function PillRow<T extends string>({
             onClick={() => onSelect(o.key)}
             className={`text-[11px] px-2.5 py-1 rounded-full transition-colors ${
               isActive
-                ? "bg-ink text-white"
-                : "bg-black/[.04] text-muted hover:bg-black/[.08] hover:text-ink"
+                ? "bg-primary text-white"
+                : "bg-white/[.06] text-muted hover:bg-white/10 hover:text-ink"
             }`}
           >
             {o.label}

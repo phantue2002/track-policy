@@ -143,7 +143,7 @@ export default function NorthAmericaMap({
                 transition:
                   "stroke 200ms, stroke-width 200ms, filter 200ms",
                 filter: isSelected
-                  ? "drop-shadow(0 4px 12px rgba(0,0,0,0.15))"
+                  ? "drop-shadow(0 4px 12px rgba(0,0,0,0.55))"
                   : undefined,
               };
               const hoverFilter = isSelected
@@ -228,7 +228,7 @@ export default function NorthAmericaMap({
                   transition:
                     "stroke 200ms, stroke-width 200ms, filter 200ms",
                   filter: isSelected
-                    ? "drop-shadow(0 4px 12px rgba(0,0,0,0.15))"
+                    ? "drop-shadow(0 4px 12px rgba(0,0,0,0.55))"
                     : undefined,
                 };
                 const hoverFilter = isSelected

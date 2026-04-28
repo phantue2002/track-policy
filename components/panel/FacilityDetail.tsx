@@ -115,7 +115,7 @@ export default function FacilityDetail({
   return (
     <div className="flex-1 overflow-y-auto">
       {/* Header — mirrors the entity panel (h2 + small status line) */}
-      <div className="px-6 pt-1 pb-5 border-b border-black/[.06]">
+      <div className="px-6 pt-1 pb-5 border-b border-hairline">
         <h2 className="text-2xl font-semibold text-ink tracking-tight leading-[1.1]">
           {operator}
         </h2>
@@ -152,7 +152,7 @@ export default function FacilityDetail({
               <div
                 key={d.label}
                 className={`flex items-start justify-between gap-4 py-2.5 text-[13px] ${
-                  i === 0 ? "" : "border-t border-black/[.04]"
+                  i === 0 ? "" : "border-t border-hairline"
                 }`}
               >
                 <dt className="text-muted flex-shrink-0">{d.label}</dt>
@@ -173,7 +173,7 @@ export default function FacilityDetail({
             facility.proposal.waterSource ||
             facility.proposal.opposition?.length ||
             facility.proposal.requirements?.length) && (
-            <section className="flex flex-col gap-4 py-4 border-t border-black/[.06]">
+            <section className="flex flex-col gap-4 py-4 border-t border-hairline">
               <h3 className="text-[11px] font-medium tracking-tight text-muted">
                 Proposal status
               </h3>
@@ -206,7 +206,7 @@ export default function FacilityDetail({
               {(facility.proposal.powerSource || facility.proposal.waterSource) && (
                 <dl className="flex flex-col">
                   {facility.proposal.powerSource && (
-                    <div className="flex items-start justify-between gap-4 py-2 text-[13px] border-t border-black/[.04] first:border-t-0">
+                    <div className="flex items-start justify-between gap-4 py-2 text-[13px] border-t border-hairline first:border-t-0">
                       <dt className="text-muted flex-shrink-0">Power</dt>
                       <dd className="text-ink text-right tracking-tight">
                         {facility.proposal.powerSource}
@@ -214,7 +214,7 @@ export default function FacilityDetail({
                     </div>
                   )}
                   {facility.proposal.waterSource && (
-                    <div className="flex items-start justify-between gap-4 py-2 text-[13px] border-t border-black/[.04]">
+                    <div className="flex items-start justify-between gap-4 py-2 text-[13px] border-t border-hairline">
                       <dt className="text-muted flex-shrink-0">Water</dt>
                       <dd className="text-ink text-right tracking-tight">
                         {facility.proposal.waterSource}
@@ -234,7 +234,7 @@ export default function FacilityDetail({
                       {facility.proposal.requirements.map((r, i) => (
                         <li
                           key={i}
-                          className="text-[13px] text-ink/85 leading-snug pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1 before:h-1 before:rounded-full before:bg-black/30"
+                          className="text-[13px] text-ink/85 leading-snug pl-3 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1 before:h-1 before:rounded-full before:bg-white/30"
                         >
                           {r}
                         </li>
@@ -251,7 +251,7 @@ export default function FacilityDetail({
                       {facility.proposal.opposition.map((o, i) => (
                         <li
                           key={i}
-                          className="text-[11.5px] px-2 py-1 rounded-full bg-black/[.04] text-ink/80 tracking-tight"
+                          className="text-[11.5px] px-2 py-1 rounded-full bg-white/[.06] text-ink/80 tracking-tight"
                         >
                           {o}
                         </li>
@@ -292,7 +292,7 @@ export default function FacilityDetail({
                 {facility.concerns.map((c) => (
                   <li
                     key={c}
-                    className="text-[11.5px] px-2 py-1 rounded-full bg-black/[.04] text-ink/80 tracking-tight"
+                    className="text-[11.5px] px-2 py-1 rounded-full bg-white/[.06] text-ink/80 tracking-tight"
                   >
                     {prettyConcern(c)}
                   </li>
@@ -307,7 +307,7 @@ export default function FacilityDetail({
             to match the issues-list rhythm above: small header, stance
             dot + title, date + municipality as muted meta. */}
         {relatedActions.length > 0 && (
-          <section className="flex flex-col gap-2 py-4 border-t border-black/[.06]">
+          <section className="flex flex-col gap-2 py-4 border-t border-hairline">
             <h3 className="text-[11px] font-medium tracking-tight text-muted">
               Local actions
             </h3>

@@ -83,7 +83,7 @@ export default function PoliticiansClient({ all }: { all: Legislator[] }) {
 
   return (
     <div className="flex flex-col gap-6 md:grid md:grid-cols-[240px_minmax(0,1fr)] md:gap-10">
-      <aside className="md:sticky md:top-20 md:self-start flex flex-col gap-4 rounded-2xl bg-white/90 backdrop-blur-2xl border border-black/[.04] shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.06)] p-5">
+      <aside className="md:sticky md:top-20 md:self-start flex flex-col gap-4 rounded-2xl bg-card/90 backdrop-blur-2xl border border-hairline shadow-[0_8px_32px_rgba(0,0,0,0.50),0_2px_8px_rgba(0,0,0,0.40)] p-5">
         {billFilter && (
           <div className="rounded-xl bg-stance-concerning/10 p-3 text-[11px] leading-snug">
             <div className="font-medium text-ink">Filtered by bill</div>
@@ -106,7 +106,7 @@ export default function PoliticiansClient({ all }: { all: Legislator[] }) {
           <button
             type="button"
             onClick={() => setVisible((v) => v + PAGE)}
-            className="self-center mt-2 text-xs text-muted hover:text-ink px-4 py-2 rounded-full bg-black/[.04] hover:bg-black/[.08] transition-colors"
+            className="self-center mt-2 text-xs text-muted hover:text-ink px-4 py-2 rounded-full bg-white/[.06] hover:bg-white/10 transition-colors"
           >
             Show {Math.min(PAGE, filtered.length - visible)} more
           </button>

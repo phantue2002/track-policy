@@ -42,7 +42,7 @@ export default function BillTimeline({ stage }: { stage: Stage }) {
 
   return (
     <div className="mt-3">
-      <div className="h-1 bg-black/[.06] rounded-full overflow-hidden">
+      <div className="h-1 bg-white/[.08] rounded-full overflow-hidden">
         <div
           className={`h-full ${barColorFor(stage)} rounded-full transition-all duration-300`}
           style={{ width: `${progressFor(stage) * 100}%` }}
